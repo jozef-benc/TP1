@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schottky dioda</title>
+    <style>@import url("style.css");</style>
+</head>
+<body>
+    <header>
+        <h1>Štruktúra</h1>
+        <button onclick="startAnimation()">Play</button>
+        <button onclick="endAnimation()">Stop</button>
+    </header>
+
+   
+    <div id="animationDiv">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  >
+            <rect id="base" class="base"/>
+            
+            <rect id="N" class="N" />
+            <rect id="N_plus" class="N_plus" />
+            <rect id="OPN" class="OPN" rx="15">
+                <animate  id="OPN_height_anim"  begin="indefinite"  attributeName="height" dur="2s"  fill="freeze"/>
+                <animate  id="OPN_width_anim"  begin="indefinite"  attributeName="width"  dur="2s"  fill="freeze"/>
+                <animate  id="OPN_pos_anim"   begin="indefinite" attributeName="x" dur="2s"  fill="freeze"/>
+            </rect>
+
+            <rect id="SiO2_1" class="SiO2"/>
+            <rect id="SiO2_2"class="SiO2"/>
+            <rect id="kov" class="kov" />
+
+            
+
+            <text id="text1" class="text" fill="black">SiO<tspan dominant-baseline="middle">2</tspan></text>
+            <text id="text2"class="text" fill="black">SiO<tspan dominant-baseline="middle">2</tspan></text>
+            <text id="text3"class="text" fill="black">KOV</text>
+            <text id="text4"class="text" fill="black">N</text>
+            <text id="text5"class="text" fill="black">N+</text>
+            
+            <path id="N_top_border"  fill="none" stroke="rgb(0,51,255)" stroke-width="2px" />
+            <path id="kov_bottom_border"  fill="none" stroke="rgb(51,51,51)" stroke-width="2px" stroke-dasharray="7, 4"/>
+            <path id="dash_path" fill="none" stroke="rgb(204, 236, 255)" stroke-width="2px" stroke-dasharray="4, 7"/>
+            <path id="curve_path_border"  fill="none" stroke="rgb(0,51,255)" stroke-width="6px" />
+            <path id="curve_path"  fill="none" stroke="antiquewhite" stroke-width="2px" />
+            
+
+            <g id="e1" visibility="hidden">
+                <circle id="electron_circle" class="electron" />
+                <text id="minus"class="minus" fill="black" text-anchor="middle"   dominant-baseline="middle">-</text>
+                <animateMotion
+                fill="freeze"
+                id="electron_animation1"
+                begin="indefinite" 
+                dur="5s"
+                repeatCount="indefinite"
+                keyPoints="0;1"
+                keyTimes="0;1"
+                calcMode="linear"
+                 />
+            </g>
+    
+            <g id="e2"  visibility="hidden">
+                <circle id="electron_circle2" class="electron" />
+                <text id="minus"class="minus" fill="black" text-anchor="middle"   dominant-baseline="middle">-</text>
+                <animateMotion
+                fill="freeze"
+                id="electron_animation2"
+                begin="indefinite" 
+                dur="5s"
+                repeatCount="indefinite"
+                keyPoints="0;1"
+                keyTimes="0;1"
+                calcMode="linear"
+                 />
+            </g>
+    
+    
+            <style>
+                .base {fill: antiquewhite;}
+                .SiO2 { fill: #c0c0c0; stroke: #c0c0c0; stroke-width: 2px;}   
+                .kov { fill: #6b6b6b; stroke: #6b6b6b; stroke-width: 2px; } 
+                .N{fill: rgb(116,206,254); stroke: rgb(0,51,255); stroke-width: 2px;}
+                .N_plus{fill: rgb(204, 236, 255); stroke: rgb(0,51,255); stroke-width: 2px;}
+                .OPN{fill:rgb(137, 238, 159)}
+                .text{font-size:  12px; font-family:monospace}
+                .electron{ fill: aliceblue;stroke:rgb(36, 74, 143); stroke-width: 2px; }
+                .minus{font-size:  16px; font-family:monospace}
+            </style>
+    
+           
+        </svg>
+
+    </div>
+    
+    
+    <script src="anim.js"></script>
+</body>
+</html>
