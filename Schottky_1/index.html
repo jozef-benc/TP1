@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schottkyho dióda</title>
+  <style>
+    @import url("video.css");
+  </style>
+
+</head>
+<body>
+<header>
+  <h1>Vach</h1>
+</header>
+<article>
+
+
+
+
+  <div id="VideoBox" >
+    <video id="video1" width="500" height="auto" preload="auto">
+      <source src="vach_priep.mp4" type="video/mp4">
+    </video>
+    <video id="video2" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_zaver.mp4" type="video/mp4">
+    </video>
+    <!------------------------------------------------------------------------>
+    <video id="video3" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_vysle.mp4" type="video/mp4">
+    </video>
+    <video id="video4" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_porov.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div id="menu">
+    <button onclick="playVideoPS()" id="button0">Priepustný smer</button><br>
+    <button onclick="playVideoZS()" id="button1">Záverný smer</button><br>
+    <button onclick="playVideoVysle()" id="button2">Výsledná VACH</button><br>
+    <button onclick="playVideoPorov()" id="button3">VACH Porovnanie</button><br>
+    <button onclick="reset()">Reset</button>
+  </div>
+
+</article>
+</body>
+  <script>
+
+    let videoPS = document.getElementById("video1");
+    let videoZS = document.getElementById("video2");
+    let videoVysle = document.getElementById("video3");
+    let videoPorov = document.getElementById("video4");
+
+    function playVideoPS(){
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoPS.removeAttribute('hidden');
+      videoPS.play();
+    }
+
+    function playVideoZS(){
+      videoPS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoZS.removeAttribute('hidden');
+      videoZS.play();
+    }
+
+    function playVideoVysle(){
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoVysle.removeAttribute('hidden');
+      videoVysle.play();
+    }
+
+    function playVideoPorov(){
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.removeAttribute('hidden');
+      videoPorov.play();
+    }
+
+
+    //hide, stop video and reset time
+    function resetVideo(video) {
+      video.setAttribute('hidden', 'hidden');
+      video.pause();
+      video.currentTime = 0;
+    }
+
+
+
+
+
+    function reset() {
+      resetVideo(videoPS)
+      resetVideo(videoZS);
+      resetVideo(videoVysle);
+      resetVideo(videoPorov);
+      videoPS.removeAttribute('hidden');
+      document.getElementById("button0").disabled=false;
+      document.getElementById("button1").disabled=false;
+
+    }
+  </script>
+</html>
