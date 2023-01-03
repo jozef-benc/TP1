@@ -17,10 +17,11 @@ body {
     height: 100vh;
     overflow: hidden;
     width: 80vw;
-    margin: auto;
+    margin: 5% auto;
     place-items: center;
     background-color: var(--Rhino);
     font-family: 'Comfortaa', cursive;
+    min-width: 900px;
 }
 
 header {
@@ -44,6 +45,8 @@ h1 {
 article {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: auto;
+    max-width: 1500px;
 }
 
 
