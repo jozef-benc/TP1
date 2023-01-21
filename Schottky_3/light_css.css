@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Dosis:wght@300&display=swap');
+
+:root {
+  --backgroundColor1: #fffafa;
+  --backgroundColor2: #306769;
+  --headerColor: #21494b;
+
+
+  --mainButtonColor:#21494b;
+  --mainButtonText:#fffafa;
+  --mainButtonText2:#306769;
+  --mainButtonBorder:#21494b;
+
+  --subButtonColor:#d4e3e4;
+  --subButtonText1:#47878a;
+  --subButtonText2:#76a7ac;
+
+}
+
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  margin: auto;
+  place-items: center;
+  background-color: var(--backgroundColor);
+  /*background-image: linear-gradient(var(--backgroundColor2), var(--backgroundColor1));*/
+  font-family: 'Comfortaa', cursive;
+  overflow-y: auto;
+}
+
+header {
+  text-align: center;
+  color: rgb(247, 247, 247);
+  background-color: var(--headerColor);
+  margin: 0;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  letter-spacing: 0.2em;
+  box-shadow: 0px 0px 12px black;
+
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+#content {
+  display: grid;
+  margin: auto;
+  width:80vw;
+  grid-template-columns: 1fr 2fr;
+}
+
+/***-----------------------------MENU-----------------------------***/
+#menu {
+  margin: auto;
+  float:right;
+  margin-top:0;
+  margin-left: 0;
+  padding: 0px 3vw;
+}
+.response_menu{
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  height: 500px;
+  margin-top: 3em;
+  box-shadow: inset 0 0 5px rgb(193, 197, 201); 
+}
+
+#menu_struktura, #menu_vach, #menu_pasmovy_diagram {
+  display: none;
+  margin: auto;
+  margin-top:0;
+  margin-left: 0;
+}
+
+
+.icon{
+  margin:0;
+  width:2em;
+  float: right;
+}
+
+/***-----------------------------BUTTONS-----------------------------***/
+
+button{
+  font-family: 'Comfortaa', cursive;
+  font-size: 10pt;
+  width: 15em;
+  letter-spacing: 0.1em;
+  padding: 0.5em;
+  text-align: left;
+  display: inline;
+}
+button:hover{
+   cursor: pointer;
+   
+}
+
+.mainButton {
+  border: 1px solid var(--mainButtonBorder);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: var(--mainButtonColor);
+  color: var(--mainButtonText);
+  margin: 0.5em;
+  margin-bottom: 0;
+  font-weight: 500;
+ 
+}
+
+.mainButton:hover {
+  color:#f1f097;
+  /*color: var(--mainButtonColor);
+  background-image: linear-gradient(to right, var(--mainButtonText),var(--mainButtonText2));*/
+  box-shadow: 0px 0px 8px black;
+  
+}
+
+.subButton{
+  border: 1px solid var(--backgroundColor);
+  background-color: var(--subButtonColor);
+  color: var(--subButtonText);
+  margin: 0  0.5em;
+}
+
+.subButton:hover{
+  border-radius: 0;
+  box-shadow: 0px 0px 8px black;
+  font-weight: 600;
+}
+
+.subButton:disabled, .disalbledStyle{
+  cursor:default;
+  border-radius: 3px;
+  color:#f1f097;
+  background-color: var(--subButtonText1);
+  /*background-image: linear-gradient(to right, var(--subButtonText),var(--subButtonText2));*/
+  box-shadow: 0px 0px 8px black;
+  
+}
+
+/***-----------------------------VIDEO BOX-----------------------------***/
+
+#VideoBox {
+  width: 500px;
+  padding: 10px;
+  height: auto;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 8px black;
+  margin-left:3em
+}
+
+/***-----------------------------LEGEND-----------------------------***/
+
+.container{
+  position: relative;
+}
+
+#legend{
+  position: absolute;
+  width:500px;
+  background-color: var(--backgroundColor2);
+  z-index: 2;
+  display: none;
+  padding-top:0.5em ;
+  bottom:0em;
+}
+
+h3{
+  width: 15em;
+  padding-left: 2%;
+  margin-right:0;
+  display: inline-block;
+  margin:0;
+  padding: 0.5em ;
+  color:var(--mainButtonText);
+  font-weight: lighter;
+}
+.close_button{
+  background-color: var(--backgroundColor2);
+  font-size: 18pt;
+  color:var(--mainButtonText);
+  width: 1.5em ;
+  float:right;
+  border:none;
+  padding: 0;
+  padding-right: 0.5em;
+}
+.close_button:hover{
+  font-weight: bolder;
+}
+
+/***-----------------------------THEORY-----------------------------***/
+
+
+
+#theory{
+  position: absolute;
+  width:500px;
+  background-color: var(--backgroundColor2);
+  z-index: 2;
+  display: none;
+  padding-top:0.5em ;
+  top:0;
+}
+
+h4{
+
+  margin:0;
+  padding: 0.5em ;
+  padding-top:1em;
+  color:var(--backgroundColor2);
+  font-size: 12pt;
+}
+h5{
+  margin:0;
+  padding: 0.5em ;
+  padding-top:1em;
+  color:var(--backgroundColor2);
+  font-size: 11pt;
+}
+.theory_content{
+  background-color: var(--backgroundColor1);
+  height: 600px;
+  overflow-y: scroll;
+  box-shadow: inset 0 0 5px rgb(193, 197, 201); 
+}
+
+
+.theory_content,p{
+  color: var(--mainButtonColor);
+  font-size: 10pt;
+  margin: 0;
+  padding:0 0.4em
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(193, 197, 201); 
+  border-radius: 2px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--subButtonText2); 
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--subButtonText1); 
+}
+
+/***-----------------------------HIDDEN_MENU-----------------------------***/
+
+
+#hiddenMenu{ 
+  width:2.5em;
+  border: none;
+  text-align: center;
+  padding:0.5em;
+  padding-top: 0.4em ;
+  background-color: var(--mainButtonColor);
+  height: 2.5em;
+  border-radius: 3px;
+  display: none;
+  z-index: 6;
+
+  
+}
+.line{
+  width: 1.5em;
+  height: 2px;
+  background-color: var(--mainButtonText);;
+  margin:3px 0;
+}
+#hiddenMenu:hover{
+  box-shadow: 0px 0px 8px black;
+}
+#hiddenMenu:hover  .line{
+  background-color:#f1f097;
+}

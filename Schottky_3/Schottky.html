@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schottkyho dioda</title>
+    <style>
+        @import url("light_css.css");
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Schottkyho dióda</h1>
+    </header>
+   
+    <article id="content">
+        
+        <button id="hiddenMenu" onclick="show_menu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </button>
+      
+        <div id="menu">
+            <button class="mainButton" onclick="show_vach()">VACH Schottky<span id="vach_button_icon"
+                    class="icon">⮞</span> </button>
+            <div id="menu_vach">
+                <button class="subButton" onclick="playVideoPS_vach()" id="button_vPS">Priepustný smer</button><br>
+                <button class="subButton" onclick="playVideoZS_vach()" id="button_vZS">Záverný smer</button><br>
+                <button class="subButton" onclick="playVideoVysle()" id="button_vV">Výsledná VACH</button><br>
+                <button class="subButton" onclick="playVideoPorov()" id="button_vP">VACH porovnanie</button><br>
+                <button class="subButton" onclick="reset_vach()">Reset</button>
+            </div>
+            <br>
+            <button class="mainButton" onclick="show_struktura()"> Štruktúra <span id="structure_button_icon"
+                    class="icon">⮞</span></button>
+            <div id="menu_struktura">
+                <button class="subButton" onclick="zoom_struktura()" id="zoom_button">Zoom</button><br>
+                <button class="subButton" onclick="playVideoPS()" id="s_ps">Priepustný smer</button><br>
+                <button class="subButton" onclick="playVideoZS()" id="s_zs">Záverný smer</button><br>
+                <button class="subButton" onclick="show_legend()" id="legend_button">Legenda</button><br>
+                <button class="subButton" onclick="reset_struktura()">Reset</button>
+            </div>
+            <br>
+            <button class="mainButton" onclick="show_pasmovy_diagram()">Pásmové diagramy <span
+                    id="pasmovy_diagram_button_icon" class="icon">⮞</span></button>
+            <div id="menu_pasmovy_diagram">
+                <button class="subButton" onclick="" id="button0">Priepustný smer</button><br>
+                <button class="subButton" onclick="" id="button1">Záverný smer</button><br>
+                <button class="subButton" onclick="">Reset</button>
+            </div>
+            <br>
+            <button class="mainButton" onclick="show_theory()" id="theory_button">Teória</button>
+            <br>
+            <button class="mainButton" onclick="reset_site()">Reset</button>
+        </div>
+
+        <div class="container">
+            <div id="VideoBox_vach">
+                <video id="video0_1" width="500" height="auto" preload="auto">
+                    <source src="Video/vach_priep.mp4" type="video/mp4">
+                </video>
+                <video id="video0_2" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/vach_zaver.mp4" type="video/mp4">
+                </video>
+                <!------------------------------------------------------------------------>
+                <video id="video0_3" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/vach_vysle.mp4" type="video/mp4">
+                </video>
+                <video id="video0_4" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/vach_porov.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="VideoBox_structura" style="display: none;">
+                <video id="video1_1" width="500" height="auto" preload="auto">
+                    <source src="Video/ZS_part1_full.mp4" type="video/mp4">
+                </video>
+                <video id="video1_2" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/ZS_part2_full.mp4" type="video/mp4">
+                </video>
+                <!------------------------------------------------------------------------>
+                <video id="video1_3" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/PS_part1_full.mp4" type="video/mp4">
+                </video>
+                <video id="video1_4" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/PS_part2_full.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="VideoBox_zoom" style="display: none;">
+                <video id="video2_0" width="500" height="auto" preload="auto" loop hidden>
+                    <source src="Video/Zoom_base.mp4" type="video/mp4">
+                </video>
+
+                <video id="video2_1" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/Zoom_ps1.mp4" type="video/mp4">
+                </video>
+                <video id="video2_2" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/Zoom_ps2.mp4" type="video/mp4">
+                </video>
+
+                <video id="video2_3" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/Zoom_zs1.mp4" type="video/mp4">
+                </video>
+                <video id="video2_4" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/Zoom_zs2.mp4" type="video/mp4">
+                </video>
+
+            </div>
+
+            <div id="VideoBox_pasmovy_diagram">
+                <!-- TODO: pasmovy diagram videá-->
+            </div>
+
+            <div id="legend">
+                <h3>Legenda</h3>
+                <button class="close_button" onclick="close_legend()">✕</button>
+                <br>
+                <img src="Legenda.jpg" width="500" height="auto">
+            </div>
+
+            <div id="theory">
+                <h3>Teória</h3>
+                <button class="close_button" onclick="close_theory()">✕</button>
+                <br>
+                <div class="theory_content">
+                    <h4>Schottkyho dióda</h4>
+                    <p>
+                        Schottkyho dióda, ktorá pre svoju činnosť využíva priechod kov-polovodič sa oproti
+                        klasickej dióde s PN priechodom líši hlavne značne menším úbytkom napätia v priepustnom
+                        smere (približne 2V), menším prierazným napätím v závernom smere a menším záverným prúdom.
+                        Ukázať tieto jej vlastnosti je hlavnou úlohou tejto animácie.
+                    </p>
+                    <b>
+                       <p>Animácia sa skladá z troch hlavných častí:</p> 
+                    </b>
+                    <p>
+                        -Voltampérová charakteristika (VACH) Schottkyho diódy
+                    </p>
+                    <p>
+                        -Porovnanie VACH schottkyho diódy a VACH klasickej diódy s PN priechodom
+                    </p>
+                    <p>
+                        -Štruktúra schottkyho diódy
+                    </p>
+                    <h4>Použité zjednodušenie</h4>
+                    <p>
+                        Je potrebné si uvedomiť niekoľko zjednodušení, ktoré boli v tejto animácii použité.
+                        V sekcii štruktúra sú zobrazené len majoritné častice (v tomto prípade sú to elektróny), pretože
+                        výskyt
+                        minoritných častíc je v dôsledku absencie opačne dotovaného polovodiča v štruktúre pre tento
+                        modelový príklad zanedbateľný. Tiež si treba uvedomiť, že reálna štruktúra aj napriek použitiu
+                        "reálnejšieho" modelu, predsa len vyzerá v realite ešte trochu inak a hlavne ide do priestoru
+                        (má 3 dimenzie).
+                        Na tému štruktúry je ešte nutné uviesť, že vrstva substrátu N je v skutošnosti oveľa hrubšia
+                        ako epitaxná vrstva N+, ale kvôli prehľadnosti bola skrátená, pretože pre náš príklad nie je
+                        až taká zaujímavá.
+                    </p>
+                    <p>
+                        Ďalším zjednodušením je relativita napätí zobrazovaných na animovanom zdroji napätia.
+                        Hodnoty, ktoré ukazuje rádovo (i presnejšie) odpovedajú reálnym hodnotám, ale nie je možné sa
+                        nimi
+                        riadiť ako konkrétnymi katalógovými či nameranými hodnotami. Pre získanie korektného obrazu
+                        o hodnotách sú sekcie VACH schottkyho diódy a podsekcie zobrazenie výslednej VACH uvedené
+                        parametre
+                        reálnej diódy podľa jej katalógového listu.
+                    </p>
+                    <p>
+                        Porovnanie Vach je opäť len modelové (rovnako ako samotná VACH schottkyho diódy) a pri porovnaní
+                        VACH dvoch reálnych diód sa ich VACH budú líšiť v závislosti od použitých maeriálov, teplotných
+                        závislostí
+                        a určenia diódy, či už schottkyho alebo PN
+                    </p>
+                    <h5>Vzťahy</h5>
+                    <p>
+                        Schockleyho rovnica pre priepustne polarizovaný smer:
+                    </p>
+                    <img src="Schockleyho rovnica.jpg" width="170px" height="auto " class="img-fluid"
+                        alt="Responsive image">
+                    <p>
+                        kde: <br> Is je saturačný prúd <br> Rs je sériový odpor <br> Vth je boltzmanovo teplotné napätie
+                        Vth=kT/q <br>
+                        h je faktor ideality (typicky od 1.02 po 1.60)
+                    </p>
+                    <p>
+                        Schockleyho rovnicu pre záverne polarizovaný smer je možné získať substitúciou Vsi za Vsi-V, kde
+                        V je pripojené záverné napätie.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </article>
+
+
+    <script src="videoPlayer.js"></script>
+    <script src="menu.js"></script>
+    <script src="responsive.js"></script>
+</body>
+
+</html>
