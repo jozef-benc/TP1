@@ -40,15 +40,38 @@
     <video id="video4" width="500" height="auto" preload="auto" hidden>
       <source src="vach_porov.mp4" type="video/mp4">
     </video>
+    <video id="video5" width="500" height="auto" preload="auto" hidden>
+      <source src="struktura.mp4" type="video/mp4">
+    </video>
+    <video id="video6" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_struktura_priepustny.mp4" type="video/mp4">
+    </video>
+    <video id="video7" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_struktura_zaverny.mp4" type="video/mp4">
+    </video>
   </div>
 
   <div id="menu">
-    <button onclick="playVideoPS()" id="button0">Priepustný smer</button><br>
-    <button onclick="playVideoZS()" id="button1">Záverný smer</button><br>
+    <button onclick="playVideoPS()" id="button0">Schottky Priepustný smer</button><br>
+    <button onclick="playVideoZS()" id="button1">Schottky Záverný smer</button><br>
     <button onclick="playVideoVysle()" id="button2">Výsledná VACH</button><br>
     <button onclick="playVideoPorov()" id="button3">VACH Porovnanie</button><br>
+    <button onclick="playVideoStruktura()" id="button4">Štruktúra</button><br>
+    <button onclick="playVideoStrukturaPriepustny()" id="button5">Štruktúra Priepustný smer</button><br>
+    <button onclick="playVideoStrukturaZaverny()" id="button6">Štruktúra Záverný smer</button><br>
     <button onclick="reset()">Reset</button><br>
-    <button data-toggle="modal" data-target="#priepustny">Pomoc</button><br>
+    <button data-toggle="modal" data-target="#legenda">Legenda</button><br>
+
+    <div class="modal fade bd-example-modal-lg" id="legenda" tabindex="-1" role="dialog"
+      aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <img src="legend2.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+      </div>
+    </div>
+  
+   <button data-toggle="modal" data-target="#priepustny">Pomoc</button><br>
 
     <div class="modal fade bd-example-modal-lg" id="priepustny" tabindex="-1" role="dialog"
       aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -120,40 +143,83 @@
     let videoZS = document.getElementById("video2");
     let videoVysle = document.getElementById("video3");
     let videoPorov = document.getElementById("video4");
+    let videoStrukt = document.getElementById("video5");
+    let videoStruktPriepust = document.getElementById("video6");
+    let videoStruktZaver = document.getElementById("video7");
 
     function playVideoPS(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoPS.removeAttribute('hidden');
       videoPS.play();
     }
 
     function playVideoZS(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoZS.removeAttribute('hidden');
       videoZS.play();
     }
 
     function playVideoVysle(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoVysle.removeAttribute('hidden');
       videoVysle.play();
     }
 
     function playVideoPorov(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoPorov.removeAttribute('hidden');
       videoPorov.play();
     }
-
-
+    function playVideoStruktura(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.removeAttribute('hidden');
+      videoStrukt.play();
+    }
+    function playVideoStrukturaPriepustny(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.removeAttribute('hidden');
+      videoStruktPriepust.play();
+    }
+    function playVideoStrukturaZaverny(){
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
+      videoStruktZaver.removeAttribute('hidden');
+      videoStruktZaver.play();
+    }
     //hide, stop video and reset time
     function resetVideo(video) {
       video.setAttribute('hidden', 'hidden');
@@ -170,6 +236,9 @@
       resetVideo(videoZS);
       resetVideo(videoVysle);
       resetVideo(videoPorov);
+      resetVideo(videoStrukt);
+      resetVideo(videoStruktPriepust);
+      resetVideo(videoStruktZaver);
       videoPS.removeAttribute('hidden');
       document.getElementById("button0").disabled=false;
       document.getElementById("button1").disabled=false;
