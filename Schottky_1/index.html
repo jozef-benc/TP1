@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schottkyho dióda</title>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <style>
     @import url("video.css");
   </style>
-
 </head>
 <body>
 <header>
@@ -32,15 +40,100 @@
     <video id="video4" width="500" height="auto" preload="auto" hidden>
       <source src="vach_porov.mp4" type="video/mp4">
     </video>
+    <video id="video5" width="500" height="auto" preload="auto" hidden>
+      <source src="struktura.mp4" type="video/mp4">
+    </video>
+    <video id="video6" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_struktura_priepustny.mp4" type="video/mp4">
+    </video>
+    <video id="video7" width="500" height="auto" preload="auto" hidden>
+      <source src="vach_struktura_zaverny.mp4" type="video/mp4">
+    </video>
   </div>
 
   <div id="menu">
-    <button onclick="playVideoPS()" id="button0">Priepustný smer</button><br>
-    <button onclick="playVideoZS()" id="button1">Záverný smer</button><br>
+    <button onclick="playVideoPS()" id="button0">Schottky Priepustný smer</button><br>
+    <button onclick="playVideoZS()" id="button1">Schottky Záverný smer</button><br>
     <button onclick="playVideoVysle()" id="button2">Výsledná VACH</button><br>
     <button onclick="playVideoPorov()" id="button3">VACH Porovnanie</button><br>
-    <button onclick="reset()">Reset</button>
-  </div>
+    <button onclick="playVideoStruktura()" id="button4">Štruktúra</button><br>
+    <button onclick="playVideoStrukturaPriepustny()" id="button5">Štruktúra Priepustný smer</button><br>
+    <button onclick="playVideoStrukturaZaverny()" id="button6">Štruktúra Záverný smer</button><br>
+    <button onclick="reset()">Reset</button><br>
+    <button data-toggle="modal" data-target="#legenda">Legenda</button><br>
+
+    <div class="modal fade bd-example-modal-lg" id="legenda" tabindex="-1" role="dialog"
+      aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <img src="legend2.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+      </div>
+    </div>
+  
+   <button data-toggle="modal" data-target="#priepustny">Pomoc</button><br>
+
+    <div class="modal fade bd-example-modal-lg" id="priepustny" tabindex="-1" role="dialog"
+      aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+          <h3 class="text-primary text-center">Schottkyho dioda</h3>
+          <p>
+            Schottkyho dióda, ktorá pre svoju činnosť využíva priechod kov-polovodič sa oproti
+            klasickej dióde s PN priechodom líši hlavne značne menším úbytkom napätia v priepustnom 
+            smere (približne 2V), menším prierazným napätím v závernom smere a menším záverným prúdom.
+            Ukázať tieto jej vlastnosti je hlavnou úlohou tejto animácie.
+          </p>
+          <b>
+            Animácia sa skladá z troch hlavných častí:
+          </b>
+          <p>
+            -Voltampérová charakteristika (VACH) Schottkyho diódy
+          </p>
+          <p>
+            -Porovnanie VACH schottkyho diódy a VACH klasickej diódy s PN priechodom
+          </p>
+          <p>
+            -Štruktúra schottkyho diódy
+          </p>
+          <h4 class="text-center">Použité zjednodušenie</h4>
+          <p>
+            Je potrebné si uvedomiť niekoľko zjednodušení, ktoré boli v tejto animácii použité.
+            V sekcii štruktúra sú zobrazené len majoritné častice (v tomto prípade sú to elektróny), pretože výskyt
+            minoritných častíc je v dôsledku absencie opačne dotovaného polovodiča v štruktúre pre tento 
+            modelový príklad zanedbateľný. Tiež si treba uvedomiť, že reálna štruktúra aj napriek použitiu 
+            "reálnejšieho" modelu, predsa len vyzerá v realite ešte trochu inak a hlavne ide do priestoru (má 3 dimenzie).
+            Na tému štruktúry je ešte nutné uviesť, že vrstva substrátu N je v skutošnosti oveľa hrubšia
+            ako epitaxná vrstva N+, ale kvôli prehľadnosti bola skrátená, pretože pre náš príklad nie je 
+            až taká zaujímavá. 
+          </p>
+          <p>
+            Ďalším zjednodušením je relativita napätí zobrazovaných na animovanom zdroji napätia. 
+            Hodnoty, ktoré ukazuje rádovo (i presnejšie) odpovedajú reálnym hodnotám, ale nie je možné sa nimi 
+            riadiť ako konkrétnymi katalógovými či nameranými hodnotami. Pre získanie korektného obrazu
+            o hodnotách sú sekcie VACH schottkyho diódy a podsekcie zobrazenie výslednej VACH uvedené parametre 
+            reálnej diódy podľa jej katalógového listu.
+          </p>
+          <p>
+            Porovnanie Vach je opäť len modelové (rovnako ako samotná VACH schottkyho diódy) a pri porovnaní
+            VACH dvoch reálnych diód sa ich VACH budú líšiť v závislosti od použitých maeriálov, teplotných závislostí 
+            a určenia diódy, či už schottkyho alebo PN
+          </p>
+          <h5 class="text-center">Vzťahy</h5>
+          <p>
+            Schockleyho rovnica pre priepustne polarizovaný smer:
+          </p>
+          <img src="Schockleyho rovnica.jpg" width="170px" height="170px " class="img-fluid" alt="Responsive image">
+          <p>
+            kde <br> Is je saturačný prúd <br> Rs je sériový odpor <br> Vth je boltzmanovo teplotné napätie Vth=kT/q <br>
+             h je faktor ideality (typicky od 1.02 po 1.60)
+          </p>
+          <p>
+            Schockleyho rovnicu pre záverne polarizovaný smer je možné získať substitúciou Vsi za Vsi-V, kde V je pripojené záverné napätie.
+          </p>
+        </div>
+      </div>
+    </div>
 
 </article>
 </body>
@@ -50,40 +143,83 @@
     let videoZS = document.getElementById("video2");
     let videoVysle = document.getElementById("video3");
     let videoPorov = document.getElementById("video4");
+    let videoStrukt = document.getElementById("video5");
+    let videoStruktPriepust = document.getElementById("video6");
+    let videoStruktZaver = document.getElementById("video7");
 
     function playVideoPS(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoPS.removeAttribute('hidden');
       videoPS.play();
     }
 
     function playVideoZS(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoZS.removeAttribute('hidden');
       videoZS.play();
     }
 
     function playVideoVysle(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoVysle.removeAttribute('hidden');
       videoVysle.play();
     }
 
     function playVideoPorov(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
       videoPS.setAttribute('hidden', 'hidden');
       videoZS.setAttribute('hidden', 'hidden');
       videoVysle.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
       videoPorov.removeAttribute('hidden');
       videoPorov.play();
     }
-
-
+    function playVideoStruktura(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.removeAttribute('hidden');
+      videoStrukt.play();
+    }
+    function playVideoStrukturaPriepustny(){
+      videoStruktZaver.setAttribute('hidden', 'hidden');
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.removeAttribute('hidden');
+      videoStruktPriepust.play();
+    }
+    function playVideoStrukturaZaverny(){
+      videoPS.setAttribute('hidden', 'hidden');
+      videoZS.setAttribute('hidden', 'hidden');
+      videoVysle.setAttribute('hidden', 'hidden');
+      videoPorov.setAttribute('hidden', 'hidden');
+      videoStrukt.setAttribute('hidden', 'hidden');
+      videoStruktPriepust.setAttribute('hidden', 'hidden');
+      videoStruktZaver.removeAttribute('hidden');
+      videoStruktZaver.play();
+    }
     //hide, stop video and reset time
     function resetVideo(video) {
       video.setAttribute('hidden', 'hidden');
@@ -100,6 +236,9 @@
       resetVideo(videoZS);
       resetVideo(videoVysle);
       resetVideo(videoPorov);
+      resetVideo(videoStrukt);
+      resetVideo(videoStruktPriepust);
+      resetVideo(videoStruktZaver);
       videoPS.removeAttribute('hidden');
       document.getElementById("button0").disabled=false;
       document.getElementById("button1").disabled=false;
