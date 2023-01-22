@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schottky dioda</title>
+    <style>
+        @import url("style.css");
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1> Schottkyho dióda</h1>
+        <button onclick="PS_anim()" id="button0">Priepustný smer</button>
+
+        <br>
+        <button onclick="ZS_anim()" id="button1">Záverný smer</button>
+        
+        <br>
+        <button onclick="Reset_anim()">Reset</button>
+        <br>
+
+        <div id="button_div">
+            <button class="button2" onclick="PS_electron_anim()" id="button2" style="display:none;">Zobraziť
+                častice</button>
+            <button class="button2" onclick="PS_schottky_effect()" id="button3" style="display:none;">Schottky
+                efekt</button>
+            <button class="button2" onclick="ZS_electron_anim()" id="button5" style="display:none;">Zobraziť
+                častice</button>
+            <button class="button2" onclick="ZS_schottky_effect()" id="button4" style="display:none;">Schottky
+                efekt</button>
+        </div>
+    </header>
+
+
+    <div id="animationDiv">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="svg">
+
+            <rect id="whiteRec" style="fill: rgb(255, 255, 255); " />
+            <rect id="greenRec" style="fill: rgb(239, 255, 234);" />
+            <rect id="kov" style="fill: rgb(174, 174, 174);" />
+
+
+            <path id="white_filling" fill=" rgb(255, 255, 255)" fill-rule="nonzero" stroke="none" />
+            <path id="green_filling" fill=" rgb(148, 254, 112)" fill-rule="nonzero" stroke="none" />
+
+            <path id="test_filling" fill=" none" fill-rule="evenodd" stroke="none" />
+            <!-- <path id="test_filling2" fill="none"  stroke="none"/>-->
+
+            <rect id="border" style="fill: none; stroke-width:1;stroke:rgb(0, 0, 0)" />
+
+            <path id="inner_border" stroke="rgb(0, 0, 0)" stroke-width="1px" />
+            <path id="base_line" stroke="rgb(0, 0, 0)" stroke-width="1px" />
+            <path id="dash_line" stroke="rgb(0, 0, 0)" stroke-width="1px" stroke-dasharray="7, 6" />
+
+
+            <path id="blue_vertical" stroke="rgb(0, 0, 255)" stroke-width="4px" />
+            <path id="blue_horizontal1" stroke="rgb(0, 0, 255)" stroke-width="4px" />
+            <path id="blue_horizontal2" stroke="rgb(0, 0, 255)" stroke-width="4px" />
+
+            <path id="curve1" fill=" rgb(239, 255, 234)" stroke="rgb(0, 0, 255)" stroke-width="4px" />
+            <path id="curve2" fill="none" stroke="rgb(0, 0, 255)" stroke-width="4px" />
+
+            <path id="electron_path_ps" fill="none" stroke="none" stroke-width="2px" />
+            <path id="sch_curve_ps" fill="none" stroke="none" stroke-width="4px" />
+            <path id="sch_line_ps" fill="none" stroke="none" stroke-width="4px" />
+
+            <path id="electron_path_zs" fill="none" stroke="none" stroke-width="2px" />
+            <path id="sch_curve_zs" fill="none" stroke="none" stroke-width="4px" />
+            <path id="sch_line_zs" fill="none" stroke="none" stroke-width="4px" />
+
+        </svg>
+
+    </div>
+
+    <script src="PS_setup.js"></script>
+    <script src="PD_anim.js"></script>
+
+</body>
+
+</html>
