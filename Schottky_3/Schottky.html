@@ -126,7 +126,8 @@
                 <h3>Teória</h3>
                 <button class="close_button" onclick="close_theory()">✕</button>
                 <br>
-                <div class="theory_content">
+                <div class="theory_content" style="display: block;
+                padding: 10px;">
                     <h4>Schottkyho dióda</h4>
                     <p>
                         Schottkyho dióda, ktorá pre svoju činnosť využíva priechod kov-polovodič sa oproti
@@ -135,7 +136,7 @@
                         Ukázať tieto jej vlastnosti je hlavnou úlohou tejto animácie.
                     </p>
                     <b>
-                       <p>Animácia sa skladá z troch hlavných častí:</p> 
+                       <p>Animácia sa skladá zo štyroch hlavných častí:</p> 
                     </b>
                     <p>
                         -Voltampérová charakteristika (VACH) Schottkyho diódy
@@ -146,21 +147,26 @@
                     <p>
                         -Štruktúra schottkyho diódy
                     </p>
+                    <p>
+                        -Pásmové diagramy
+                    </p>
                     <h4>Použité zjednodušenie</h4>
                     <p>
                         Je potrebné si uvedomiť niekoľko zjednodušení, ktoré boli v tejto animácii použité.
-                        V sekcii štruktúra sú zobrazené len majoritné častice (v tomto prípade sú to elektróny), pretože
+                        V sekcii štruktúra a sekcii pásmové diagramy sú zobrazené len majoritné častice (v tomto prípade sú to elektróny), pretože
                         výskyt
                         minoritných častíc je v dôsledku absencie opačne dotovaného polovodiča v štruktúre pre tento
                         modelový príklad zanedbateľný. Tiež si treba uvedomiť, že reálna štruktúra aj napriek použitiu
                         "reálnejšieho" modelu, predsa len vyzerá v realite ešte trochu inak a hlavne ide do priestoru
                         (má 3 dimenzie).
+                        Zoom štruktúry nemá naanimovaný postupný nárast elektrónov, ale keĎže slúži len na ukázanie prítomnosti
+                        donoro, je možné toto zanedbať. 
                         Na tému štruktúry je ešte nutné uviesť, že vrstva substrátu N je v skutošnosti oveľa hrubšia
                         ako epitaxná vrstva N+, ale kvôli prehľadnosti bola skrátená, pretože pre náš príklad nie je
                         až taká zaujímavá.
                     </p>
                     <p>
-                        Ďalším zjednodušením je relativita napätí zobrazovaných na animovanom zdroji napätia.
+                        Ďalším zjednodušením je relativita napätí zobrazovaných na animovanom zdroji napätia a v pásmových diagramoch.
                         Hodnoty, ktoré ukazuje rádovo (i presnejšie) odpovedajú reálnym hodnotám, ale nie je možné sa
                         nimi
                         riadiť ako konkrétnymi katalógovými či nameranými hodnotami. Pre získanie korektného obrazu
@@ -174,8 +180,20 @@
                         závislostí
                         a určenia diódy, či už schottkyho alebo PN
                     </p>
-                    <h5>Vzťahy</h5>
+                    <h5>Sav TDR Schottkyho diódy</h5>
                     <p>
+                        Elektróny vo vodivom pásme kryštálu si môžeme predstaviť ako "sediace" v potenciálnych "jamách", t.j. 
+                        v priestore, ktorý sformovali kryštálové väzby. Ak k sebe kov a polovovidč priblížime na malú vzdialenosť
+                        niektoré elektróny z kovu sa presunú do polovodiča a naopak. Keďže potencialová bariera kovi pre elektróny je širšia,
+                         prejde viac elektrónov z polovodiča do kovu a naopak. Z tohto dôvodu bude kov nabitý záporne a polovidič kladne
+                         čo vytvorí oblasť priestorového náboja (OPN) veľmi podobnú  tej čo vznikne na priechode P+-N u klasickej diódy
+                         s PN priechodom. Fermiho hladina bude konštantná v celom priestore, ako v kove tak v polovodiči.
+                    </p>
+                    <h5>Priepustná polarizácia Schottkyho diódy</h5>
+                    <p>
+                        Pripojenie napätia na diódu v priepustnom smere zníži šírku potenciálnej bariery (OPN sa zužuje, vonkajšie elektrické polene
+                        pôsobí proti elektrickému poľu v OPN) pre majoritné pohyblivé elektróny nachádzajúce sa v polovodiči a začne ich pretláčať do kovu. 
+
                         Schockleyho rovnica pre priepustne polarizovaný smer:
                     </p>
                     <img src="Schockleyho rovnica.jpg" width="170px" height="auto " class="img-fluid"
@@ -189,13 +207,32 @@
                         Schockleyho rovnicu pre záverne polarizovaný smer je možné získať substitúciou Vsi za Vsi-V, kde
                         V je pripojené záverné napätie.
                     </p>
+                    <h5>Záverná polarizácia Schottkyho diódy</h5>
+                    <p>
+                        Vonkajšie elektrické pole súhlasne pôsobí s vnútorným elektrickým poľom v OPN (OPN sa rozširuje).
+                        Toto zamedzí tok majoritných elektrónov v smere z polovodiča do kovu. Keďže v Schottkyho dióde sa 
+                        nachádza vždy len jeden typ polovodiča, nemôžeme hovoriť o toku minoritných nosičov náboja. 
+                        Tečie len malý záverný prúd, je však rádovo váčší, ako ten ktorý tečie priechodom PN.
+
+                    </p>
+                    <h5>Schottkyho efekt</h5>
+                    <p>
+                        Schottkyho efektom nazývame jav, popisujúci zníženie energie potenciálovej hladiny pre voľné nosiče náboja
+                         v dôsledku nahromadenia sa tzv. zrkadlového náboja na rozhraní medzi kovom a polovodičom. Keď sa elektrón
+                         nachádza vo vzdialenosti x od kovu, kladný náboj bude naindukovaný na povrchu kovu. Príťažlivá sila existujúca medzi
+                         záporne nabitým elektrónom a naindukovaným kladným zrkadlovým nábojom je ekvivalentná sile, ktorá by pôsobila
+                         medzi týmto elektrónom a kladnou časticou nachádzajúcou sa vo vzdialenosti -x od povrchu kovu. Táto príťažlivá sila 
+                         má za následok, že pri pripojení vonkajšieho napätia (či už to v priepustnom alebo závernom smere) je energia
+                         voľných nosičov náboja približujúcich sa k rozhraniu kov-polovodič potrebná na prekonanie potenciálovej bariery
+                        znížená o hodnotu tejto príťažlivej sily.
+                    </p>
 
                 </div>
             </div>
         </div>
 
 
-
+<br>
 
     </article>
 
