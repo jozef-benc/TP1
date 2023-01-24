@@ -24,7 +24,7 @@
     </button>
       
         <div id="menu">
-            <button class="mainButton" onclick="show_vach()">VACH Schottky<span id="vach_button_icon"
+            <button class="mainButton" onclick="show_vach()"><label>VACH Schottky</label><span id="vach_button_icon"
                     class="icon">⮞</span> </button>
             <div id="menu_vach">
                 <button class="subButton" onclick="playVideoPS_vach()" id="button_vPS">Priepustný smer</button><br>
@@ -33,8 +33,8 @@
                 <button class="subButton" onclick="playVideoPorov()" id="button_vP">VACH porovnanie</button><br>
                 <button class="subButton" onclick="reset_vach()">Reset</button>
             </div>
-            <br>
-            <button class="mainButton" onclick="show_struktura()"> Štruktúra <span id="structure_button_icon"
+            
+            <button class="mainButton" onclick="show_struktura()"> <label>Štruktúra</label> <span id="structure_button_icon"
                     class="icon">⮞</span></button>
             <div id="menu_struktura">
                 <button class="subButton" onclick="zoom_struktura()" id="zoom_button">Zoom</button><br>
@@ -43,20 +43,20 @@
                 <button class="subButton" onclick="show_legend()" id="legend_button">Legenda</button><br>
                 <button class="subButton" onclick="reset_struktura()">Reset</button>
             </div>
-            <br>
-            <button class="mainButton" onclick="show_pasmovy_diagram()">Pásmové diagramy <span
+            
+            <button class="mainButton" onclick="show_pasmovy_diagram()"><label>Pásmové diagramy</label> <span
                     id="pasmovy_diagram_button_icon" class="icon">⮞</span></button>
             <div id="menu_pasmovy_diagram">
                 <button class="subButton" onclick="playVideoPdPs()" id="PD_PS_button">Priepustný smer</button><br>
                 <button class="subButton" onclick="playVideoPdZs()" id="PD_ZS_button">Záverný smer</button><br>
-                <button class="subButton" onclick="show_electrons()" disabled  id='PD_electrons_button' >Zobraziť častice</button>
-                <button class="subButton" onclick="show_Schottky()" id='PD_schottky_button' disabled>Schottkyho efekt</button>
+                <button class="subButton" onclick="show_electrons()" disabled  id='PD_electrons_button' >Zobraziť častice</button><br>
+                <button class="subButton" onclick="show_Schottky()" id='PD_schottky_button' disabled>Schottkyho efekt</button><br>
                 <button class="subButton" onclick="PD_reset()">Reset</button>
             </div>
-            <br>
-            <button class="mainButton" onclick="show_theory()" id="theory_button">Teória</button>
-            <br>
-            <button class="mainButton" onclick="reset_site()">Reset</button>
+            
+            <button class="mainButton" onclick="show_theory()" id="theory_button"><label>Teória</label></button>
+            
+            <button class="mainButton" onclick="reset_site()"><label>Reset</label></button>
         </div>
         
         <div class="container">
@@ -113,8 +113,6 @@
                 </video>
             </div>
 
-
-
             <!--PÁSMOVÉ DIAGRAMY--> 
             <div id="VideoBox_pasmovy_diagram">
                 
@@ -141,18 +139,16 @@
                 <video id="video3_6" width="500" height="auto" preload="auto" hidden loop>
                     <source src="Video/PD_ZS_castice_sch.mp4" type="video/mp4">
                 </video>
-
-
             </div>
-
 
             <!---LEGENDA-->
             <div id="legend">
                 <h3>Legenda</h3>
                 <button class="close_button" onclick="close_legend()">✕</button>
                 <br>
-                <img src="Legenda.jpg" width="500" height="auto">
+                <img id="legend_img" src="Legenda.jpg" width="500" height="auto">
             </div>
+            
             <!---TEÓRIA-->
             <div id="theory">
                 <h3>Teória</h3>
