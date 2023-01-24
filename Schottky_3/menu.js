@@ -17,6 +17,7 @@ function resetMenuButtons() {
   close_theory();
 }
 
+//TODO
 function showBaseSite(){
   document.getElementById("VideoBox_vach").style.display = 'block';
 }
@@ -30,8 +31,7 @@ function show_vach() {
     document.getElementById("menu_vach").style.display = 'block';
     document.getElementById("VideoBox_vach").style.display = 'block';
   }
-  else
-    showBaseSite();
+  
 }
 
 function show_struktura() {
@@ -42,8 +42,7 @@ function show_struktura() {
     document.getElementById("menu_struktura").style.display = 'block';
     document.getElementById("VideoBox_structura").style.display = 'block';
   }
-  else
-    showBaseSite();
+  
 }
 
 function show_pasmovy_diagram() {
@@ -55,8 +54,7 @@ function show_pasmovy_diagram() {
     document.getElementById("VideoBox_pasmovy_diagram").style.display = 'block';
     document.getElementById("PD_base").removeAttribute('hidden');
   }
-  else
-    showBaseSite();
+  
 }
 
 function reset_site() {
@@ -75,7 +73,7 @@ function show_theory() {
 
 function close_theory() {
   document.getElementById("theory").style.display = "none";
-  showBaseSite();
+  
 }
 
 
