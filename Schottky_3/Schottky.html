@@ -47,17 +47,20 @@
             <button class="mainButton" onclick="show_pasmovy_diagram()">Pásmové diagramy <span
                     id="pasmovy_diagram_button_icon" class="icon">⮞</span></button>
             <div id="menu_pasmovy_diagram">
-                <button class="subButton" onclick="" id="button0">Priepustný smer</button><br>
-                <button class="subButton" onclick="" id="button1">Záverný smer</button><br>
-                <button class="subButton" onclick="">Reset</button>
+                <button class="subButton" onclick="playVideoPdPs()" id="PD_PS_button">Priepustný smer</button><br>
+                <button class="subButton" onclick="playVideoPdZs()" id="PD_ZS_button">Záverný smer</button><br>
+                <button class="subButton" onclick="show_electrons()" disabled  id='PD_electrons_button' >Zobraziť častice</button>
+                <button class="subButton" onclick="show_Schottky()" id='PD_schottky_button' disabled>Schottkyho efekt</button>
+                <button class="subButton" onclick="PD_reset()">Reset</button>
             </div>
             <br>
             <button class="mainButton" onclick="show_theory()" id="theory_button">Teória</button>
             <br>
             <button class="mainButton" onclick="reset_site()">Reset</button>
         </div>
-
+        
         <div class="container">
+            <!---VACH-->
             <div id="VideoBox_vach">
                 <video id="video0_1" width="500" height="auto" preload="auto">
                     <source src="Video/vach_priep.mp4" type="video/mp4">
@@ -65,7 +68,7 @@
                 <video id="video0_2" width="500" height="auto" preload="auto" hidden>
                     <source src="Video/vach_zaver.mp4" type="video/mp4">
                 </video>
-                <!------------------------------------------------------------------------>
+            
                 <video id="video0_3" width="500" height="auto" preload="auto" hidden>
                     <source src="Video/vach_vysle.mp4" type="video/mp4">
                 </video>
@@ -73,7 +76,7 @@
                     <source src="Video/vach_porov.mp4" type="video/mp4">
                 </video>
             </div>
-
+            <!---ŠTRUKTÚRA-->    
             <div id="VideoBox_structura" style="display: none;">
                 <video id="video1_1" width="500" height="auto" preload="auto">
                     <source src="Video/ZS_part1_full.mp4" type="video/mp4">
@@ -81,7 +84,7 @@
                 <video id="video1_2" width="500" height="auto" preload="auto" hidden loop>
                     <source src="Video/ZS_part2_full.mp4" type="video/mp4">
                 </video>
-                <!------------------------------------------------------------------------>
+                
                 <video id="video1_3" width="500" height="auto" preload="auto" hidden>
                     <source src="Video/PS_part1_full.mp4" type="video/mp4">
                 </video>
@@ -89,7 +92,7 @@
                     <source src="Video/PS_part2_full.mp4" type="video/mp4">
                 </video>
             </div>
-
+            <!---ZOOM--> 
             <div id="VideoBox_zoom" style="display: none;">
                 <video id="video2_0" width="500" height="auto" preload="auto" loop hidden>
                     <source src="Video/Zoom_base.mp4" type="video/mp4">
@@ -108,20 +111,49 @@
                 <video id="video2_4" width="500" height="auto" preload="auto" hidden loop>
                     <source src="Video/Zoom_zs2.mp4" type="video/mp4">
                 </video>
-
             </div>
 
+
+
+            <!--PÁSMOVÉ DIAGRAMY--> 
             <div id="VideoBox_pasmovy_diagram">
-                <!-- TODO: pasmovy diagram videá-->
+                
+                <img id = "PD_base" src="Image/PD_base.png" width="500" height="auto" hidden>
+
+                <video id="video3_1" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/PD_PS.mp4" type="video/mp4">
+                </video>
+                <img id = "PD_PS_sch" src="Image/PS_schottky.png" width="500" height="auto" hidden>
+                <video id="video3_2" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/PD_PS_castice.mp4" type="video/mp4">
+                </video>
+                <video id="video3_3" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/PD_PS_castice_sch.mp4" type="video/mp4">
+                </video>
+
+                <video id="video3_4" width="500" height="auto" preload="auto" hidden>
+                    <source src="Video/PD_ZS.mp4" type="video/mp4">
+                </video>
+                <img id = "PD_ZS_sch" src="Image/ZS_schottky.png" width="500" height="auto" hidden>
+                <video id="video3_5" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/PD_ZS_castice.mp4" type="video/mp4">
+                </video>
+                <video id="video3_6" width="500" height="auto" preload="auto" hidden loop>
+                    <source src="Video/PD_ZS_castice_sch.mp4" type="video/mp4">
+                </video>
+
+
             </div>
 
+
+            <!---LEGENDA-->
             <div id="legend">
                 <h3>Legenda</h3>
                 <button class="close_button" onclick="close_legend()">✕</button>
                 <br>
                 <img src="Legenda.jpg" width="500" height="auto">
             </div>
-
+            <!---TEÓRIA-->
             <div id="theory">
                 <h3>Teória</h3>
                 <button class="close_button" onclick="close_theory()">✕</button>

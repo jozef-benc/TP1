@@ -17,6 +17,16 @@ var Zoom_ps2 = document.getElementById("video2_2");
 var Zoom_zs1 = document.getElementById("video2_3");
 var Zoom_zs2 = document.getElementById("video2_4");
 
+//PD videos + images
+var PD_PS = document.getElementById("video3_1");
+var PD_PS_electrons = document.getElementById("video3_2");
+var PD_PS_electrons_sch = document.getElementById("video3_3");
+var PD_PS_sch = document.getElementById("PD_PS_sch");
+var PD_ZS = document.getElementById("video3_4");
+var PD_ZS_electrons = document.getElementById("video3_5");
+var PD_ZS_electrons_sch = document.getElementById("video3_6");
+var PD_ZS_sch = document.getElementById("PD_ZS_sch");
+
 var zoom_on = false;
 var ps_on = false;
 var zs_on = false;
@@ -24,7 +34,7 @@ var zs_on = false;
 //VACH
 function playVideoPS_vach() {
   resetButtons();
-  document.getElementById("button_vPS").disabled = true;
+  document.getElementById("button_vPS").classList.add("selected");
 
   videoZS.setAttribute('hidden', 'hidden');
   videoVysle.setAttribute('hidden', 'hidden');
@@ -35,7 +45,7 @@ function playVideoPS_vach() {
 
 function playVideoZS_vach() {
   resetButtons();
-  document.getElementById("button_vZS").disabled = true;
+  document.getElementById("button_vZS").classList.add("selected");
   videoPS.setAttribute('hidden', 'hidden');
   videoVysle.setAttribute('hidden', 'hidden');
   videoPorov.setAttribute('hidden', 'hidden');
@@ -45,7 +55,7 @@ function playVideoZS_vach() {
 
 function playVideoVysle() {
   resetButtons();
-  document.getElementById("button_vV").disabled = true;
+  document.getElementById("button_vV").classList.add("selected");
   videoPS.setAttribute('hidden', 'hidden');
   videoZS.setAttribute('hidden', 'hidden');
   videoPorov.setAttribute('hidden', 'hidden');
@@ -55,7 +65,7 @@ function playVideoVysle() {
 
 function playVideoPorov() {
   resetButtons();
-  document.getElementById("button_vP").disabled = true;
+  document.getElementById("button_vP").classList.add("selected");
   videoPS.setAttribute('hidden', 'hidden');
   videoZS.setAttribute('hidden', 'hidden');
   videoVysle.setAttribute('hidden', 'hidden');
@@ -81,7 +91,7 @@ function playVideoZS() {
   ps_on = false;
   resetButtons();
   resetAllVideos();
-  document.getElementById("s_zs").disabled = true;
+  document.getElementById("s_zs").classList.add("selected");
 
   if (zoom_on) {
     if (Zoom_zs1.paused) {
@@ -105,7 +115,7 @@ function playVideoPS() {
   zs_on = false;
   resetButtons();
   resetAllVideos();
-  document.getElementById("s_ps").disabled = true;
+  document.getElementById("s_ps").classList.add("selected");
 
   if (zoom_on) {
     if (Zoom_ps1.paused) {
@@ -176,35 +186,35 @@ function reset_struktura() {
   resetButtons();
   document.getElementById("VideoBox_structura").style.display = 'block';
   document.getElementById("VideoBox_zoom").style.display = 'none';
-  document.getElementById("zoom_button").classList.remove("disalbledStyle");
+  document.getElementById("zoom_button").classList.remove("selected");
   zoom_on = false;
   zs_on = false;
   ps_on = false;
   close_legend();
 }
 
-function show_legend(){
-  document.getElementById("legend").style.display="block";
-  document.getElementById("legend_button").disabled=true;
+function show_legend() {
+  document.getElementById("legend").style.display = "block";
+  document.getElementById("legend_button").classList.add("selected");
 }
-function close_legend(){
-  document.getElementById("legend").style.display="none";
-  document.getElementById("legend_button").disabled=false;
+function close_legend() {
+  document.getElementById("legend").style.display = "none";
+  document.getElementById("legend_button").classList.remove("selected");
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ZOOM
 
 function zoom_struktura() {
   zoom_on = !zoom_on;
-  ps_part_2_played=!PS_part2.hidden;
-  zs_part_2_played=!ZS_part2.hidden;
+  ps_part_2_played = !PS_part2.hidden;
+  zs_part_2_played = !ZS_part2.hidden;
 
-  resetButtons();  
+  resetButtons();
   resetAllVideos();
 
   //turn off zoom
   if (!zoom_on) {
-    document.getElementById("zoom_button").classList.remove("disalbledStyle");
+    document.getElementById("zoom_button").classList.remove("selected");
     document.getElementById("VideoBox_structura").style.display = 'block';
     ZS_part1.removeAttribute('hidden');
     document.getElementById("VideoBox_zoom").style.display = 'none';
@@ -212,7 +222,7 @@ function zoom_struktura() {
   }
 
   //turn on zoom
-  document.getElementById("zoom_button").classList.add("disalbledStyle");
+  document.getElementById("zoom_button").classList.add("selected");
   document.getElementById("VideoBox_structura").style.display = 'none';
   document.getElementById("VideoBox_zoom").style.display = 'block';
 
@@ -221,24 +231,24 @@ function zoom_struktura() {
     Zoom_base.removeAttribute('hidden');
     Zoom_base.play();
   }
-  if(zs_on){
-    document.getElementById("s_zs").disabled = true;
-    if(zs_part_2_played){
+  if (zs_on) {
+    document.getElementById("s_zs").classList.add("selected");
+    if (zs_part_2_played) {
       Zoom_zs2.removeAttribute('hidden');
       Zoom_zs2.play();
     }
-    else{
+    else {
       Zoom_zs1.removeAttribute('hidden');
       Zoom_zs1.play();
     }
   }
-  if(ps_on){
-    document.getElementById("s_ps").disabled = true;
-    if(ps_part_2_played){
+  if (ps_on) {
+    document.getElementById("s_ps").classList.add("selected");
+    if (ps_part_2_played) {
       Zoom_ps2.removeAttribute('hidden');
       Zoom_ps2.play();
     }
-    else{
+    else {
       Zoom_ps1.removeAttribute('hidden');
       Zoom_ps1.play();
     }
@@ -249,16 +259,171 @@ function zoom_struktura() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PÁSMOVÉ DIAGRAMY
+var PD_direction = '';
+var schottky = false;
+var electrons = false;
 
+//Priepustny smer
+function playVideoPdPs() {
+  PD_reset();
+  document.getElementById('PD_PS_button').classList.add('selected');
+  PD_direction = 'PS'
+  document.getElementById("PD_base").setAttribute('hidden', 'hidden');
+  PD_PS.removeAttribute('hidden');
+  PD_PS.play();
+}
+PD_PS.onended = (event) => {
+  document.getElementById('PD_schottky_button').disabled = false;
+  document.getElementById('PD_electrons_button').disabled = false;
+};
+
+//Záverny smer
+function playVideoPdZs() {
+  PD_reset();
+  document.getElementById('PD_ZS_button').classList.add('selected');
+  PD_direction = 'ZS'
+  document.getElementById("PD_base").setAttribute('hidden', 'hidden');
+  PD_ZS.removeAttribute('hidden');
+  PD_ZS.play();
+}
+PD_ZS.onended = (event) => {
+  document.getElementById('PD_schottky_button').disabled = false;
+  document.getElementById('PD_electrons_button').disabled = false;
+};
+
+//Schottky effect
+function show_Schottky() {
+  schottky = !schottky;
+  if (electrons)
+    show_electrons(true);
+  else {
+    if (schottky) {
+      document.getElementById('PD_schottky_button').classList.add('selected');
+      if (PD_direction == 'PS') {
+        PD_PS.setAttribute('hidden', 'hidden');
+        PD_PS_sch.removeAttribute('hidden');
+      }
+      if (PD_direction == 'ZS') {
+        PD_ZS.setAttribute('hidden', 'hidden');
+        PD_ZS_sch.removeAttribute('hidden');
+      }
+    }
+    else {
+      document.getElementById('PD_schottky_button').classList.remove('selected');
+      if (PD_direction == 'PS') {
+        PD_PS.removeAttribute('hidden');
+        PD_PS_sch.setAttribute('hidden', 'hidden');
+      }
+      if (PD_direction == 'ZS') {
+        PD_ZS.removeAttribute('hidden');
+        PD_ZS_sch.setAttribute('hidden', 'hidden');
+      }
+    }
+  }
+
+
+
+}
+
+//Zobraziť častice
+function show_electrons(notTurnOff) {
+  //reset videos
+  resetVideo(PD_PS_electrons);
+  resetVideo(PD_PS_electrons_sch);
+  resetVideo(PD_ZS_electrons);
+  resetVideo(PD_ZS_electrons_sch);
+  if (!notTurnOff)
+    electrons = !electrons;
+
+  //show video
+  if (electrons) {
+    document.getElementById('PD_electrons_button').classList.add('selected');
+
+    if (PD_direction == 'PS') {
+      if (schottky) {
+        PD_PS_sch.setAttribute('hidden', 'hidden');
+        PD_PS_electrons_sch.removeAttribute('hidden');
+        PD_PS_electrons_sch.play();
+      }
+      else {
+        PD_PS.setAttribute('hidden', 'hidden');
+        PD_PS_electrons.removeAttribute('hidden');
+        PD_PS_electrons.play();
+      }
+    }
+    if (PD_direction == 'ZS') {
+      if (schottky) {
+        PD_ZS_sch.setAttribute('hidden', 'hidden');
+        PD_ZS_electrons_sch.removeAttribute('hidden');
+        PD_ZS_electrons_sch.play();
+      }
+      else {
+        PD_ZS.setAttribute('hidden', 'hidden');
+        PD_ZS_electrons.removeAttribute('hidden');
+        PD_ZS_electrons.play();
+      }
+    }
+
+  }
+  //hide video
+  else {
+    document.getElementById('PD_electrons_button').classList.remove('selected');
+
+    if (PD_direction == 'PS') {
+      if (schottky)
+        PD_PS_sch.removeAttribute('hidden');
+      else
+        PD_PS.removeAttribute('hidden');
+    }
+    if (PD_direction == 'ZS') {
+      if (schottky)
+        PD_ZS_sch.removeAttribute('hidden');
+      else
+        PD_ZS.removeAttribute('hidden');
+    }
+  }
+}
+
+function PD_reset() {
+  PD_direction = '';
+  schottky = false;
+  electrons = false;
+  document.getElementById("PD_base").removeAttribute('hidden');
+
+  resetButtons();
+  document.getElementById("PD_electrons_button").disabled = true;
+  document.getElementById("PD_schottky_button").disabled = true;
+
+  resetVideo(PD_PS);
+  resetVideo(PD_PS_electrons);
+  resetVideo(PD_PS_electrons_sch);
+  resetVideo(PD_ZS);
+  resetVideo(PD_ZS_electrons);
+  resetVideo(PD_ZS_electrons_sch);
+
+
+  PD_PS_sch.setAttribute('hidden', 'hidden');
+  PD_ZS_sch.setAttribute('hidden', 'hidden');
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function resetButtons() {
 
-  document.getElementById("button_vPS").disabled = false;
-  document.getElementById("button_vZS").disabled = false;
-  document.getElementById("button_vV").disabled = false;
-  document.getElementById("button_vP").disabled = false;
+  document.getElementById("button_vPS").classList.remove("selected");
+  document.getElementById("button_vZS").classList.remove("selected");
+  document.getElementById("button_vV").classList.remove("selected");
+  document.getElementById("button_vP").classList.remove("selected");
 
-  document.getElementById("s_zs").disabled = false;
-  document.getElementById("s_ps").disabled = false;
+  document.getElementById("s_zs").classList.remove("selected");
+  document.getElementById("s_ps").classList.remove("selected");
+
+  document.getElementById("PD_PS_button").classList.remove("selected");
+  document.getElementById("PD_ZS_button").classList.remove("selected");
+  document.getElementById("PD_electrons_button").classList.remove("selected");
+  document.getElementById("PD_schottky_button").classList.remove("selected");
 
 }
 

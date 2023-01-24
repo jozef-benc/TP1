@@ -135,7 +135,14 @@ button:hover{
   font-weight: 600;
 }
 
-.subButton:disabled, .disalbledStyle{
+
+.subButton:disabled{
+  color:#aaaaaa;
+  background-color: var(--subButtonColor);
+  box-shadow: 0px 0px 0px black;
+  font-weight:normal;
+}
+.selected{
   cursor:default;
   border-radius: 3px;
   color:#f1f097;
