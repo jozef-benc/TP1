@@ -75,3 +75,9 @@ tspan {
   display: block;
 
 }
+
+.text{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12pt;
+  font-weight: bold;
+}

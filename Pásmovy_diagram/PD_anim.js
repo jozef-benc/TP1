@@ -226,7 +226,7 @@ function releaseElectron(element) {
     element.children[2].beginElement();
 }
 
-function PS_electron_anim() { electron_anim(e_array_ps, 160); }
+function PS_electron_anim() { electron_anim(e_array_ps, 155); }
 function ZS_electron_anim() { electron_anim(e_array_zs, 590); }
 
 

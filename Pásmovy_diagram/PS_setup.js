@@ -1,6 +1,6 @@
 var posX = 0;
 var posY = 0;
-var baseWidth = 400;
+var baseWidth = 600;
 var baseHeight = 350;
 
 var halfHeight = baseHeight / 4 * 2
@@ -172,6 +172,131 @@ function setBasic() {
   );*/
 
 
+  var top_line = 117;//schottky ps +2 zs +
+  var left_bottom_line = 175
+  var right_bottom_line = 140
+  var left_arrow_x = 55; //x position of the arrow
+  var right_arrow_x = 180; //x position of the arrow
+  var bottom_line_ZS = 161;
+  var bottom_line_PS = 122;
+
+  var a_width = 5;
+  var a_height = 11;
+
+  // left arrow
+  document.getElementById("line1").setAttribute('x1', left_arrow_x - a_width);
+  document.getElementById("line1").setAttribute('y1', top_line + a_height);
+  document.getElementById("line1").setAttribute('x2', left_arrow_x);
+  document.getElementById("line1").setAttribute('y2', top_line);
+
+  document.getElementById("line2").setAttribute('x1', left_arrow_x);
+  document.getElementById("line2").setAttribute('y1', top_line);
+  document.getElementById("line2").setAttribute('x2', left_arrow_x + a_width);
+  document.getElementById("line2").setAttribute('y2', top_line + a_height);
+
+  document.getElementById("line3").setAttribute('x1', left_arrow_x);
+  document.getElementById("line3").setAttribute('y1', top_line);
+  document.getElementById("line3").setAttribute('x2', left_arrow_x);
+  document.getElementById("line3").setAttribute('y2', left_bottom_line);
+
+  document.getElementById("line4").setAttribute('x1', left_arrow_x - a_width);
+  document.getElementById("line4").setAttribute('y1', left_bottom_line - a_height);
+  document.getElementById("line4").setAttribute('x2', left_arrow_x);
+  document.getElementById("line4").setAttribute('y2', left_bottom_line);
+
+  document.getElementById("line5").setAttribute('x1', left_arrow_x);
+  document.getElementById("line5").setAttribute('y1', left_bottom_line);
+  document.getElementById("line5").setAttribute('x2', left_arrow_x + a_width);
+  document.getElementById("line5").setAttribute('y2', left_bottom_line - a_height);
 
 
-}
+  document.getElementById("horizontalLine").setAttribute('x1', left_arrow_x - 10);
+  document.getElementById("horizontalLine").setAttribute('y1', top_line);
+  document.getElementById("horizontalLine").setAttribute('x2', right_arrow_x + 10);
+  document.getElementById("horizontalLine").setAttribute('y2', top_line);
+
+
+  //right arrow base
+  /*document.getElementById("line6").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line6").setAttribute('y1', top_line + a_height);
+  document.getElementById("line6").setAttribute('x2', right_arrow_x);
+  document.getElementById("line6").setAttribute('y2', top_line);
+
+  document.getElementById("line7").setAttribute('x1', right_arrow_x);
+  document.getElementById("line7").setAttribute('y1', top_line);
+  document.getElementById("line7").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line7").setAttribute('y2', top_line + a_height);
+
+  document.getElementById("line8").setAttribute('x1', right_arrow_x);
+  document.getElementById("line8").setAttribute('y1', top_line);
+  document.getElementById("line8").setAttribute('x2', right_arrow_x);
+  document.getElementById("line8").setAttribute('y2', right_bottom_line);
+
+  document.getElementById("line9").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line9").setAttribute('y1', right_bottom_line - a_height);
+  document.getElementById("line9").setAttribute('x2', right_arrow_x);
+  document.getElementById("line9").setAttribute('y2', right_bottom_line);
+
+  document.getElementById("line10").setAttribute('x1', right_arrow_x);
+  document.getElementById("line10").setAttribute('y1', right_bottom_line);
+  document.getElementById("line10").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line10").setAttribute('y2', right_bottom_line - a_height);*/
+
+  //right arrow ZS  
+  document.getElementById("line6").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line6").setAttribute('y1', top_line + a_height);
+  document.getElementById("line6").setAttribute('x2', right_arrow_x);
+  document.getElementById("line6").setAttribute('y2', top_line);
+
+  document.getElementById("line7").setAttribute('x1', right_arrow_x);
+  document.getElementById("line7").setAttribute('y1', top_line);
+  document.getElementById("line7").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line7").setAttribute('y2', top_line + a_height);
+
+  document.getElementById("line8").setAttribute('x1', right_arrow_x);
+  document.getElementById("line8").setAttribute('y1', top_line);
+  document.getElementById("line8").setAttribute('x2', right_arrow_x);
+  document.getElementById("line8").setAttribute('y2', bottom_line_ZS);
+
+  document.getElementById("line9").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line9").setAttribute('y1', bottom_line_ZS - a_height);
+  document.getElementById("line9").setAttribute('x2', right_arrow_x);
+  document.getElementById("line9").setAttribute('y2', bottom_line_ZS);
+
+  document.getElementById("line10").setAttribute('x1', right_arrow_x);
+  document.getElementById("line10").setAttribute('y1', bottom_line_ZS);
+  document.getElementById("line10").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line10").setAttribute('y2', bottom_line_ZS - a_height);
+
+
+  //right arrow PS  
+  /*document.getElementById("line6").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line6").setAttribute('y1', bottom_line_PS + a_height);
+  document.getElementById("line6").setAttribute('x2', right_arrow_x);
+  document.getElementById("line6").setAttribute('y2', bottom_line_PS);
+
+  document.getElementById("line7").setAttribute('x1', right_arrow_x);
+  document.getElementById("line7").setAttribute('y1', bottom_line_PS);
+  document.getElementById("line7").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line7").setAttribute('y2', bottom_line_PS + a_height);
+
+  document.getElementById("line8").setAttribute('x1', right_arrow_x);
+  document.getElementById("line8").setAttribute('y1', bottom_line_PS);
+  document.getElementById("line8").setAttribute('x2', right_arrow_x);
+  document.getElementById("line8").setAttribute('y2', bottom_line_PS+30);
+
+  document.getElementById("line9").setAttribute('x1', right_arrow_x - a_width);
+  document.getElementById("line9").setAttribute('y1', top_line - a_height);
+  document.getElementById("line9").setAttribute('x2', right_arrow_x);
+  document.getElementById("line9").setAttribute('y2', top_line);
+
+  document.getElementById("line10").setAttribute('x1', right_arrow_x);
+  document.getElementById("line10").setAttribute('y1', top_line);
+  document.getElementById("line10").setAttribute('x2', right_arrow_x + a_width);
+  document.getElementById("line10").setAttribute('y2', top_line - a_height);
+
+  document.getElementById("line11").setAttribute('x1', right_arrow_x);
+  document.getElementById("line11").setAttribute('y1', top_line);
+  document.getElementById("line11").setAttribute('x2', right_arrow_x);
+  document.getElementById("line11").setAttribute('y2', top_line - 30);*/
+} 
