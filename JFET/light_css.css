@@ -73,7 +73,7 @@ h1 {
   box-shadow: inset 0 0 5px rgb(193, 197, 201); 
 }
 
-#menu_struktura, #menu_vach, #menu_pasmovy_diagram {
+#menu_NF, #menu_sl, #menu_dif {
   display: none;
   margin: auto;
   margin-top:0;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schottkyho dioda</title>
+    <title>JFET applikácia</title>
     <style>
         @import url("light_css.css");
     </style>
@@ -30,7 +30,7 @@
     <header>
         <h1 id="h1_title">JFET aplikácia</h1>
     </header>
-    <article>
+    <article id="content">
         <select onchange="changeAction(this.value)"
             style="width: 110px; font-size:15px; padding: 0.2em; font-weight: 700;float: right; margin: 15px;">
 
@@ -44,12 +44,59 @@
 
 
         <p style="width:90%;" id="help">
-
-            
-
         </p>
+
+        <div id="menu">
+            <!-- NF zosilnovac button-->
+            <button class="mainButton" onclick="show_subMenu(0)"><label>NF zosilňovač</label><span id="NF_button_icon"
+                    class="icon">⮞</span> </button>
+            <div id="menu_NF">
+                <button class="subButton" onclick="" id="button_NF_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="" id="button_NF_def">Definície</button><br>
+                <button class="subButton" onclick="" id="button_NF_priklad">Príklad</button><br>
+                <button class="subButton" onclick="" >Náhradná Sch.</button>
+                <button class="subButton" onclick="">Zadanie</button>
+            </div>
+
+            <!-- Sledovac button-->
+            <button class="mainButton" onclick="show_subMenu(1)"><label>Sledovač</label><span id="sl_button_icon"
+                    class="icon">⮞</span> </button>
+            <div id="menu_sl">
+                <button class="subButton" onclick="" id="button_sl_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="" id="button_sl_def">Definície</button><br>
+                <button class="subButton" onclick="" id="button_sl_priklad">Príklad</button><br>
+                <button class="subButton" onclick="" >Náhradná Sch.</button>
+                <button class="subButton" onclick="">Zadanie</button>
+            </div>
+
+            <!-- Dif. zosilnovac button-->
+            <button class="mainButton" onclick="show_subMenu(2)"><label>Dif. zosilňovač</label><span id="dif_button_icon"
+                    class="icon">⮞</span> </button>
+            <div id="menu_dif">
+                <button class="subButton" onclick="" id="button_dif_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="" id="button_dif_def">Definície</button><br>
+                <button class="subButton" onclick="">Reset</button>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div id="Text_box" >
+                <div id="NF_text">
+                    <h4>Vzťahy</h4>
+                    <ul>
+                        <li>súhlasné vstupné napätie<b>U<sub>CM</sub></b> </li>
+                        <li>rozdielové vstupné napätie <b>U<sub>DM</sub></b></li>
+                        <li>zosilnenie rozdielového napätia <b>A<sub>D</sub></b></li>
+                        <li>zosilnenie súhlasného napätia <b>A<sub>CM</sub></b></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="Image_box">
+                <img id = "NF_orig_sch" src="Images/NF_striedavy_zosilnovac.png" width="500" height="auto">
+            </div>
+        </div>
     </article>
-    <script src="menu.js"></script>
+    <script src="jfet_menu.js"></script>
 </body>
 <script src="set_language.js"></script>
 
