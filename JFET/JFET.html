@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JFET applikácia</title>
+    <title>JFET aplikácia</title>
     <style>
         @import url("light_css.css");
     </style>
@@ -51,11 +51,11 @@
             <button class="mainButton" onclick="show_subMenu(0)"><label>NF zosilňovač</label><span id="NF_button_icon"
                     class="icon">⮞</span> </button>
             <div id="menu_NF">
-                <button class="subButton" onclick="" id="button_NF_vztahy">Vzťahy</button><br>
-                <button class="subButton" onclick="" id="button_NF_def">Definície</button><br>
-                <button class="subButton" onclick="" id="button_NF_priklad">Príklad</button><br>
-                <button class="subButton" onclick="" >Náhradná Sch.</button>
-                <button class="subButton" onclick="">Zadanie</button>
+                <button class="subButton" onclick="showImgs(0,1)" id="button_NF_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="showImgs(0,2)" id="button_NF_def">Definície</button><br>
+                <button class="subButton" onclick="showImgs(0,3)" id="button_NF_priklad">Príklad</button><br>
+                <button class="subButton" onclick="changeSchema(0)" id="sch_button">Náhradná Sch.</button>
+                <button class="subButton" onclick="showTask()">Zadanie</button>
             </div>
 
             <!-- Sledovac button-->
@@ -65,34 +65,54 @@
                 <button class="subButton" onclick="" id="button_sl_vztahy">Vzťahy</button><br>
                 <button class="subButton" onclick="" id="button_sl_def">Definície</button><br>
                 <button class="subButton" onclick="" id="button_sl_priklad">Príklad</button><br>
-                <button class="subButton" onclick="" >Náhradná Sch.</button>
+                <button class="subButton" onclick="">Náhradná Sch.</button>
                 <button class="subButton" onclick="">Zadanie</button>
             </div>
 
             <!-- Dif. zosilnovac button-->
-            <button class="mainButton" onclick="show_subMenu(2)"><label>Dif. zosilňovač</label><span id="dif_button_icon"
-                    class="icon">⮞</span> </button>
+            <button class="mainButton" onclick="show_subMenu(2)"><label>Dif. zosilňovač</label><span
+                    id="dif_button_icon" class="icon">⮞</span> </button>
             <div id="menu_dif">
                 <button class="subButton" onclick="" id="button_dif_vztahy">Vzťahy</button><br>
                 <button class="subButton" onclick="" id="button_dif_def">Definície</button><br>
                 <button class="subButton" onclick="">Reset</button>
             </div>
         </div>
-        
+
         <div class="container">
-            <div id="Text_box" >
-                <div id="NF_text">
-                    <h4>Vzťahy</h4>
-                    <ul>
-                        <li>súhlasné vstupné napätie<b>U<sub>CM</sub></b> </li>
-                        <li>rozdielové vstupné napätie <b>U<sub>DM</sub></b></li>
-                        <li>zosilnenie rozdielového napätia <b>A<sub>D</sub></b></li>
-                        <li>zosilnenie súhlasného napätia <b>A<sub>CM</sub></b></li>
-                    </ul>
+            <div id="Text_box" style="padding-bottom: 1em;">
+                <img id="NF_text" src="Images/NF_text.png" width="auto" height="240">
+                <img id="NF_vztahy" src="Images/NF_vztahy.png" width="auto" height="240" hidden>
+                <img id="NF_def" src="Images/NF_definicie.png" width="auto" height="240" hidden>
+                <img id="NF_priklad" src="Images/NF_priklad.png" width="auto" height="240" hidden>
+                <!--<img id = "Zadanie" src="Images/Zadanie.png" width="500" height="auto" hidden>-->
+                <div id="Zadanie" style="width: 500px; " hidden>
+                    <p>FET s prechodovým hradlom typu BF245 má pracovať pri napájacom napätí
+                        <span style="white-space: nowrap;">U<sub>B</sub> = 25V </span>v pracovnom bode 
+                        <span style="white-space: nowrap;">U<sub>DS</sub> = 15V, </span>
+                        <span style="white-space: nowrap;"> I<sub>D</sub> = 5mA,</span>
+                        <span style="white-space: nowrap;"> -U<sub>GS</sub> = 1,2V.</span>
+                        V tomto pracovnom bode má hodnoty:
+                        <span style="white-space: nowrap;">y<sub>21</sub> = 3,5mS</span>a
+                        <span style="white-space: nowrap;">y<sub>22</sub> = 25mS.</span>
+                        Najvyšší zbytkový prúd je
+                        <span style="white-space: nowrap;"> -I<sub>GS</sub> = 500nA</span> pri 
+                         <span style="white-space: nowrap;">V<sub>i</sub> = 125°C.</span> Pri 
+                        <span style="white-space: nowrap;">-U<sub>GS</sub> = 20V</span> je 
+                         <span style="white-space: nowrap;">-I<sub>GSS</sub> = 5nA.</span> 
+                        </p>
+                    <br>
+                    <p>
+                        Aké charakteristické hodnoty bude mať pri zapojení
+                        so spoločnou elektródou source pod obrázku?
+                    </p>
+
+
                 </div>
             </div>
             <div id="Image_box">
-                <img id = "NF_orig_sch" src="Images/NF_striedavy_zosilnovac.png" width="500" height="auto">
+                <img id="NF_orig_sch" src="Images/NF_striedavy_zosilnovac.png" width="500" height="auto">
+                <img id="NF_nachr_sch" src="Images/NF_nahradna_sch.png" width="500" height="auto" hidden>
             </div>
         </div>
     </article>
