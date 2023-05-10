@@ -7,7 +7,6 @@ Vývoj interaktívnych vzdelávacích animácií pre oblasť elektroniky, fotoni
 ### Tím
 - Bc. Dávid Baranec
 - Bc. Alex Teplanský
-- Bc. Filip Brhlík
 - Bc. Noémi Herbrik
 - Bc. Emma Valábková
 - Bc. Jozef Benc
