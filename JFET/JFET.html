@@ -54,7 +54,7 @@
                 <button class="subButton" onclick="showImgs(0,1)" id="button_NF_vztahy">Vzťahy</button><br>
                 <button class="subButton" onclick="showImgs(0,2)" id="button_NF_def">Definície</button><br>
                 <button class="subButton" onclick="showImgs(0,3)" id="button_NF_priklad">Príklad</button><br>
-                <button class="subButton" onclick="changeSchema(0)" id="sch_button">Náhradná Sch.</button>
+                <button class="subButton" onclick="changeSchema(0)" id="sch_button_0">Náhradná Sch.</button>
                 <button class="subButton" onclick="showTask()">Zadanie</button>
             </div>
 
@@ -62,33 +62,173 @@
             <button class="mainButton" onclick="show_subMenu(1)"><label>Sledovač</label><span id="sl_button_icon"
                     class="icon">⮞</span> </button>
             <div id="menu_sl">
-                <button class="subButton" onclick="" id="button_sl_vztahy">Vzťahy</button><br>
-                <button class="subButton" onclick="" id="button_sl_def">Definície</button><br>
-                <button class="subButton" onclick="" id="button_sl_priklad">Príklad</button><br>
-                <button class="subButton" onclick="">Náhradná Sch.</button>
-                <button class="subButton" onclick="">Zadanie</button>
+                <button class="subButton" onclick="showImgs(1,1)" id="button_sl_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="showImgs(1,2)" id="button_sl_def">Definície</button><br>
+                <button class="subButton" onclick="showImgs(1,3)" id="button_sl_priklad">Príklad</button><br>
+                <button class="subButton" onclick="changeSchema(1)" id="sch_button_1">Náhradná Sch.</button>
+                <button class="subButton" onclick="showTask()">Zadanie</button>
             </div>
 
             <!-- Dif. zosilnovac button-->
             <button class="mainButton" onclick="show_subMenu(2)"><label>Dif. zosilňovač</label><span
                     id="dif_button_icon" class="icon">⮞</span> </button>
             <div id="menu_dif">
-                <button class="subButton" onclick="" id="button_dif_vztahy">Vzťahy</button><br>
-                <button class="subButton" onclick="" id="button_dif_def">Definície</button><br>
-                <button class="subButton" onclick="">Reset</button>
+                <button class="subButton" onclick="showImgs(2,1)" id="button_dif_vztahy">Vzťahy</button><br>
+                <button class="subButton" onclick="showImgs(2,2)" id="button_dif_def">Definície</button><br>
             </div>
         </div>
 
         <div class="container">
             <div id="Text_box" style="padding-bottom: 1em;">
-                <img id="NF_text" src="Images/NF_text.png" width="auto" height="240">
-                <img id="NF_vztahy" src="Images/NF_vztahy.png" width="auto" height="240" hidden>
-                <img id="NF_def" src="Images/NF_definicie.png" width="auto" height="240" hidden>
-                <img id="NF_priklad" src="Images/NF_priklad.png" width="auto" height="240" hidden>
-                <!--<img id = "Zadanie" src="Images/Zadanie.png" width="500" height="auto" hidden>-->
-                <div id="Zadanie" style="width: 500px; " hidden>
+
+                <!-----------------------------NF_zosilnovac----------------------------------------------------------------->
+                <div id="NF_text" style="width: 500px; " >
+                    <p>Najdôležitejšie charakteristické veličiny sú:</p>
+                    <ul>
+                        <li>vstupný odpor pre striedavý signál <b>r<sub>in</sub></b></li>
+                        <li>výstupný odpor pre striedavý signál <b>r<sub>out</sub></b></li>
+                        <li>napäťové zosilnenie <b>A<sub>U</sub></b></li>
+                        <li>fázový posun medzi vstupným a výstupným signálom <b>φ</b></li>
+                    </ul>
+                </div>
+
+                <div id="NF_vztahy" style="width: 550px; " hidden>
+                    <p>Najdôležitejšie charakteristické veličiny sú:</p>
+                    <ul>
+                        <li>vstupný odpor pre striedavý signál
+                            <img id="NF_vztahy_1" src="Images/NF_vztahy_1.png" width="auto" height="50">
+                        </li>
+                        <li>výstupný odpor pre striedavý signál
+                            <img id="NF_vztahy_2" src="Images/NF_vztahy_2.png" width="auto" height="50">
+                        </li>
+                        <li>napäťové zosilnenie
+                            <img id="NF_vztahy_3" src="Images/NF_vztahy_3.png" width="auto" height="50">
+                        </li>
+                        <li>fázový posun medzi vstupným a výstupným signálom <b>φ</b> = 180°</li>
+                    </ul>
+                </div>
+
+                <div id="NF_def" style="width: 500px; " hidden>
+                    <p><b>Vstupný odpor r<sub>IN</sub></b> pre striedavý signál je taký odpor,
+                        ktorým zosilňovač zaťažuje zdroj signálu. Je tvorený paralelným zapojením
+                        R<sub>GS</sub> a R<sub>G</sub>.
+                    </p>
+                    <p><b>Výstupný odpor r<sub>OUT</sub></b> je odpor, ktorý sa prejavuje
+                        ako vnútorný odpor zosilovacieho stupňa pri pripojení záťaže.
+                        Je tvorený paralelným zapojením odporov R<sub>D</sub> a r<sub>DS</sub>.
+                    </p>
+                    <p><b>Napäťové zosilnenie A<sub>U</sub></b> je súčinom strmosti a výstupného
+                        odporu pre striedavý signál.
+                    </p>
+                    <p><b>Fázový posun signálu φ</b>
+                        Ak je FET budený kladnou polvlnou striedavého signálu,
+                        zvýši sa predpätie hradla. Tým sa zväčší prúd drainu, ktorý
+                        vyvolá väčší úbytok napätia na odpore v obvode drainu R<sub>D</sub>.
+                        Ten vyvolá zníženie napätia U<sub>DS</sub> medzi drainom a sourcom.
+                        Na výstupe sa objaví záporná polvlna. V zapojení so spoločnou
+                        elektródou source je preto fázový posun medzi vstupným
+                        a výstupným napätím φ=180°.
+                    </p>
+                </div>
+
+                <img id="NF_priklad" src="Images/NF_priklad.png" width="auto" height="220" hidden>
+               
+                <!-----------------------------Sledovac----------------------------------------------------------------->
+                <div id="Sledovac_vztahy" style="width: 550px; " hidden>
+                    <p>Najdôležitejšie charakteristické veličiny sú:</p>
+                    <ul>
+                        <li>vstupný odpor pre striedavý signál
+                            <img id="Sledovac_vztahy_1" src="Images/Sledovac_vztahy_1.png" width="auto" height="50">
+                        </li>
+                        <li>výstupný odpor pre striedavý signál
+                            <img id="Sledovac_vztahy_2" src="Images/Sledovac_vztahy_2.png" width="auto" height="50">
+                        </li>
+                        <li>napäťové zosilnenie
+                            <img id="Sledovac_vztahy_3" src="Images/Sledovac_vztahy_3.png" width="auto" height="50">
+                        </li>
+                        <li>fázový posun medzi vstupným a výstupným signálom <b>φ</b> = 0°</li>
+                    </ul>
+                </div>
+
+                <div id="Sledovac_def" style="width: 500px; " hidden>
+                    <p><b>Vstupný odpor r<sub>IN</sub></b> v zapojení so spoločnou 
+                        elektródou drain sa skladá z R<sub>GS</sub>, vynásobeného 
+                        súčinom strmosti a odporu v obvode source, 
+                        k čomu je paralelne pripojený odpor R<sub>G</sub>, slúžiaci 
+                        k nastaveniu potenciálneho hradla.
+                    </p>
+                    <p><b>Výstupný odpor r<sub>OUT</sub></b>pre zapojenie 
+                        so spoločnou elektródou platí uvedený vzťah, kde S je strmosť.
+                    </p>
+                    <p><b>Napäťové zosilnenie A<sub>U</sub></b> je v zapojení 
+                        so spoločnou elektródou vždy menší ako 1.
+                    </p>
+                    <p><b>Fázový posun signálu φ</b> Ak je FET budený kladnou 
+                        polvlnou striedavého signálu, nezvýši sa len predpätie hradla, 
+                        ale sa zväčší aj prúd na draine. Tím sa ale zvýši aj 
+                        úbytok napätia na odpore v obvode source R<sub>S</sub>. 
+                        Takže na výstupe sa objaví kladná polvlna. V zapojení 
+                        so spoločnou elektródou source je fázový posun medzi 
+                        vstupným a výstupným napätím φ=0°. Pretože v tomto zapojení 
+                        signál na elektróde source presne sleduje vstupný signál, býva 
+                        toto zapojenie označované ako sledovač.
+                       
+                    </p>
+                </div>
+                <img id="Sledovac_priklad" src="Images/Sledovac_priklad.png" width="auto" height="220" hidden>
+
+                <!-----------------------------Diferencialny_zosilnovac------------------------------------------------------------->
+                <div id="Dif_text" style="width: 500px; " hidden >
+                    <p>Vzťahy:</p>
+                    <ul>
+                        <li>súhlasné vstupné napätie <b>U<sub>CM</sub></b></li>
+                        <li>rozdielové vstupné napätie <b>U<sub>DM</sub></b></li>
+                        <li>zosilnenie rozdielového napätia <b>A<sub>D</sub></b></li>
+                        <li>zosilnenie súhlasného napätia <b>A<sub>CM</sub></b></li>
+                    </ul>
+                </div>
+
+                <div id="Dif_vztahy" style="width: 550px; " hidden>
+                    <p>Vzťahy:</p>
+                    <ul>
+                        <li>súhlasné vstupné napätie
+                            <img id="Dif_vztahy_1" src="Images/Dif_vztahy_1.png" width="auto" height="50">
+                        </li>
+                        <li>rozdielové vstupné napätie
+                            <img id="Dif_vztahy_2" src="Images/Dif_vztahy_2.png" width="auto" height="50">
+                        </li>
+                        <li>zosilnenie rozdielového napätia
+                            <img id="Dif_vztahy_3" src="Images/Dif_vztahy_3.png" width="auto" height="50">
+                        </li>
+                        <li>zosilnenie súhlasného napätia
+                            <img id="Dif_vztahy_4" src="Images/Dif_vztahy_4.png" width="auto" height="50">
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="Dif_def" style="width: 500px; " hidden>
+                    <p>Vzhľadom na rozdielne vlastnosti diferenciálneho zosilňovača 
+                        pri súhlasom a rozdielovom vstupom napätí, je výhodné rozložiť 
+                        vstupné napätie U<sub>I1</sub> a U<sub>I2</sub> na <b>vstupné napätie 
+                        súhlasného módu</b> resp. <b>súhlasné vstupné napätie</b> U<sub>CM</sub> 
+                        (Common Mode) a <b>vstupné napätie rozdielového módu</b> U<sub>DM</sub> (Differential Mode).
+                    </p>
+                    <p>Zosilnenie rozdielového napätia resp. napäťový zisk diferenciálneho 
+                        zosilňovača A<sub>D</sub> v diferenciálnom móde bude pre rozdielové 
+                        zložky vstupných napätí definovaná vzťahom uvedeným.
+                    <p><b>Zosilnenie súhlasného napätia</b> A<sub>CM</sub> diferenciálneho zosilňovača 
+                        je v ideálnom prípade nulové. V skutočnosti závisí od hodnoty 
+                        vnútorného odporu r<sub>K</sub> prúdového zdroja I<sub>K</sub>.
+                    </p>
+                    
+                </div>
+
+
+                <!-----------------------------Zadanie----------------------------------------------------------------->
+                 <!--<img id = "Zadanie" src="Images/Zadanie.png" width="500" height="auto" hidden>-->
+                 <div id="Zadanie" style="width: 500px; " hidden>
                     <p>FET s prechodovým hradlom typu BF245 má pracovať pri napájacom napätí
-                        <span style="white-space: nowrap;">U<sub>B</sub> = 25V </span>v pracovnom bode 
+                        <span style="white-space: nowrap;">U<sub>B</sub> = 25V </span>v pracovnom bode
                         <span style="white-space: nowrap;">U<sub>DS</sub> = 15V, </span>
                         <span style="white-space: nowrap;"> I<sub>D</sub> = 5mA,</span>
                         <span style="white-space: nowrap;"> -U<sub>GS</sub> = 1,2V.</span>
@@ -96,23 +236,29 @@
                         <span style="white-space: nowrap;">y<sub>21</sub> = 3,5mS</span>a
                         <span style="white-space: nowrap;">y<sub>22</sub> = 25mS.</span>
                         Najvyšší zbytkový prúd je
-                        <span style="white-space: nowrap;"> -I<sub>GS</sub> = 500nA</span> pri 
-                         <span style="white-space: nowrap;">V<sub>i</sub> = 125°C.</span> Pri 
-                        <span style="white-space: nowrap;">-U<sub>GS</sub> = 20V</span> je 
-                         <span style="white-space: nowrap;">-I<sub>GSS</sub> = 5nA.</span> 
-                        </p>
+                        <span style="white-space: nowrap;"> -I<sub>GS</sub> = 500nA</span> pri
+                        <span style="white-space: nowrap;">V<sub>i</sub> = 125°C.</span> Pri
+                        <span style="white-space: nowrap;">-U<sub>GS</sub> = 20V</span> je
+                        <span style="white-space: nowrap;">-I<sub>GSS</sub> = 5nA.</span>
+                    </p>
                     <br>
                     <p>
                         Aké charakteristické hodnoty bude mať pri zapojení
                         so spoločnou elektródou source pod obrázku?
                     </p>
-
-
                 </div>
+
+
             </div>
             <div id="Image_box">
                 <img id="NF_orig_sch" src="Images/NF_striedavy_zosilnovac.png" width="500" height="auto">
                 <img id="NF_nachr_sch" src="Images/NF_nahradna_sch.png" width="500" height="auto" hidden>
+
+                <img id="Sledovac_orig_sch" src="Images/Sledovac.png" width="500" height="auto" hidden>
+                <img id="Sledovac_nachr_sch" src="Images/Sledovac_nahradna_sch.png" width="500" height="auto" hidden>
+
+                <img id="Dif_orig_sch" src="Images/Diferencialny_zosilnovac.png" width="500" height="auto" hidden>
+                
             </div>
         </div>
     </article>
