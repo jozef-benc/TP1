@@ -13,12 +13,12 @@ var language = {
     en: {
         h1_title:"JFET application",
         lang: "Language",
-        help: "div to help"
+        help: ""
     },
     sk: {
         h1_title:"JFET aplikácia",
         lang: "Jazyk",
-        help: " pomocne divko"
+        help: " "
     }
 };
 
