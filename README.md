@@ -15,7 +15,7 @@ Vývoj interaktívnych vzdelávacích animácií pre oblasť elektroniky, fotoni
 ### Logo
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/JozefBn/TP1/main/logo.png" style="background-color:gray;" alt="Logo" width="400" height="400">
+  <img src="https://raw.githubusercontent.com/jozef-benc/TP1/main/WelcomeBlade/logo.png" style="background-color:gray;" alt="Logo" width="400" height="400">
 </p>
 
 #### TP 2022/2023 návrhy tém
